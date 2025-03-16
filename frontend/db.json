@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "name": "Nguyễn ",
+      "image": "https://th.bing.com/th/id/OIP.Wds-PDrIxUDUi7Qu9jA-WQHaE1?w=221&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "industry": "qq",
+      "birday": "2025-03-20",
+      "id": 3
+    },
+    {
+      "name": "Để em yên",
+      "image": "https://th.bing.com/th/id/OIP.Wds-PDrIxUDUi7Qu9jA-WQHaE1?w=221&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "industry": "qq",
+      "birday": "2025-02-28",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "email": "namntamnt.edu.vn",
+      "password": "$2a$10$0hSnQOYqrB27y14/VjCw.uA8KD1BTZH28hRJK06AU7xuT9kYsaoVi",
+      "name": "Nam",
+      "phone": "09898989898",
+      "id": 1
+    },
+    {
+      "email": "namdzaisieucap@gmail.com",
+      "password": "$2a$10$FYg8BVSfEXXdF0P2jQR8kOZAQuRKkSM6.CfxeqQ6f3Nrku16bcVt.",
+      "name": "Để em yên",
+      "phone": "namdzaisieucap@gmail.com",
+      "id": 2
+    }
+  ]
+}
