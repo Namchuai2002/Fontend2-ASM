@@ -1,24 +1,114 @@
 {
   "products": [
     {
-      "name": "ddddd",
-      "price": 4,
-      "image": "https://img.freepik.com/free-psd/close-up-ice-coffee-isolated_23-2151833577.jpg?",
-      "id": 2
+      "name": "Bộ đen sport TC1",
+      "price": 100000,
+      "image": "https://cf.shopee.vn/file/1234b2a2d4ccbcdc4357c818cf58a1f7",
+      "id": 1,
+      "desc": "Mô tả sản phẩm",
+      "category": 1
+    },
+    {
+      "name": "Bộ sport TC2",
+      "price": 152000,
+      "image": "https://vn-live-01.slatic.net/p/d74e1ec30321ccb3b9e40d5a93ec2221.jpg",
+      "id": 2,
+      "desc": "Mô tả sản phẩm",
+      "category": 1
+    },
+    {
+      "name": "Bộ trắng sport TC3",
+      "price": 200000,
+      "image": "https://vn-test-11.slatic.net/p/881760f80b1fceb26bdf10d889528b5a.jpg",
+      "id": 3,
+      "desc": "Mô tả sản phẩm",
+      "category": 1
+    },
+    {
+      "name": "Bộ đen sport TC4",
+      "price": 199000,
+      "image": "https://vn-test-11.slatic.net/p/af25cfaaaba5ab41ffde737e9748bdda.jpg",
+      "id": 4,
+      "desc": "Mô tả sản phẩm",
+      "category": 1
+    },
+    {
+      "name": "Bộ khoác trắng NN1",
+      "price": 250000,
+      "image": "https://th.bing.com/th/id/OIP.AVXuRZ8Wup49v21vRUg9tQAAAA?rs=1&pid=ImgDetMain",
+      "id": 5,
+      "desc": "Mô tả sản phẩm",
+      "category": 2
+    },
+    {
+      "name": "Bộ cam dạ NN2",
+      "price": 350000,
+      "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lnjyfn12jk3ec5",
+      "id": 6,
+      "desc": "Mô tả sản phẩm",
+      "category": 2
+    },
+    {
+      "name": "Bộ trắng hutgi NN3",
+      "price": 299000,
+      "image": "https://down-vn.img.susercontent.com/file/f070bb14197dfee57d6919f11b568ab4",
+      "id": 7,
+      "desc": "Mô tả sản phẩm",
+      "category": 2
+    },
+    {
+      "name": "Bộ nâu dạ NN4",
+      "price": 299000,
+      "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm8q5ccc6pjzad",
+      "id": 8,
+      "desc": "Mô tả sản phẩm",
+      "category": 2
+    },
+    {
+      "name": "Bộ trẻ em 5 màu con vật TE1",
+      "price": 150000,
+      "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lg39f4nvqdey6a",
+      "id": 9,
+      "desc": "Mô tả sản phẩm",
+      "category": 3
+    },
+    {
+      "name": "Bộ đồ đi chơi TE2",
+      "price": 120000,
+      "image": "https://toplisthanoi.com/wp-content/uploads/2021/06/shop-ao-quan-tre-em-hn-min.png",
+      "id": 10,
+      "desc": "Mô tả sản phẩm",
+      "category": 3
+    },
+    {
+      "name": "Bộ chuột micki TE3",
+      "price": 200000,
+      "image": "https://cf.shopee.vn/file/sg-11134201-22100-o8nclwfyvvivaf",
+      "id": 11,
+      "desc": "Mô tả sản phẩm",
+      "category": 3
+    },
+    {
+      "name": "Bộ sweet baby TE4",
+      "price": 100000,
+      "image": "https://cf.shopee.vn/file/32c3249ccce374cd621c028bb275bbea",
+      "id": 12,
+      "desc": "Mô tả sản phẩm",
+      "category": 3
     }
   ],
   "categories": [
     {
-      "id": 1,
-      "name": "Milk Tea"
+      "name": "Quần Áo Nam",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Latte"
+      "name": "Quần Áo Nữ",
+      "id": 2
     },
     {
       "id": 3,
-      "name": "Fruit Tea"
+      "name": "Quần áo trẻ em"
     }
   ],
   "orders": [
@@ -46,19 +136,28 @@
       "id": 3
     },
     {
-      "email": "namdzaisieucap@gmail.com",
+      "email": "namdzaisieucaap@gmail.com",
       "password": "123456",
       "id": 4
     },
     {
-      "email": "namdzaisieucap@gmail.com",
+      "email": "namdzaisieucap12@gmail.com",
       "password": "123456",
       "id": 5
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "image": "https://theme.hstatic.net/200000897657/1001272977/14/slide_product_1_img_1_img.jpg?v=1344"
     },
     {
-      "email": "namdzaisieucap@gmail.com",
-      "password": "123456",
-      "id": 6
+      "id": 2,
+      "image": "https://theme.hstatic.net/200000897657/1001272977/14/slide_product_3_img_1_img.jpg?v=1344"
+    },
+    {
+      "id": 3,
+      "image": "https://theme.hstatic.net/200000897657/1001272977/14/danhgia1.png?v=1344"
     }
   ]
 }

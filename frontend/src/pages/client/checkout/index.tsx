@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Button, InputNumber, Select, message } from "antd";
+import { Button, InputNumber, Select, message, Card, Typography, Spin } from "antd";
 import axios from "axios";
+import { CreditCardOutlined, BankOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
+const { Title, Text } = Typography;
 
 const CheckoutPage: React.FC = () => {
   const [amount, setAmount] = useState<number>(10000);
@@ -26,35 +28,63 @@ const CheckoutPage: React.FC = () => {
       window.location.href = response.data.paymentUrl;
     } catch (error) {
       console.log(error);
-
       message.error("Lỗi khi tạo thanh toán");
     }
     setLoading(false);
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "50px auto", textAlign: "center" }}>
-      <h2>Thanh toán VNPAY</h2>
-      <InputNumber
-        min={10000}
-        value={amount}
-        onChange={(value) => setAmount(value || 10000)}
-        style={{ width: "100%", marginBottom: 16 }}
-        addonAfter="VND"
-      />
-      <Select
-        placeholder="Chọn ngân hàng (Tùy chọn)"
-        onChange={setBankCode}
-        style={{ width: "100%", marginBottom: 16 }}
-        allowClear
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
+      <Card
+        hoverable
+        style={{
+          width: 400,
+          padding: "20px",
+          borderRadius: "12px",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          textAlign: "center",
+        }}
       >
-        <Option value="VCB">Vietcombank</Option>
-        <Option value="BIDV">BIDV</Option>
-        <Option value="VIB">VIB</Option>
-      </Select>
-      <Button type="primary" loading={loading} onClick={handlePayment}>
-        Thanh toán
-      </Button>
+        <Title level={3} style={{ color: "#1890ff" }}>
+          <CreditCardOutlined style={{ marginRight: 8 }} />
+          Thanh toán VNPAY
+        </Title>
+
+        <Text strong style={{ fontSize: "16px", display: "block", marginBottom: 10 }}>
+          Nhập số tiền:
+        </Text>
+        <InputNumber
+          min={10000}
+          value={amount}
+          onChange={(value) => setAmount(value || 10000)}
+          style={{ width: "100%", marginBottom: 16 }}
+          addonAfter="VND"
+        />
+
+        <Text strong style={{ fontSize: "16px", display: "block", marginBottom: 10 }}>
+          Chọn ngân hàng (Tùy chọn):
+        </Text>
+        <Select
+          placeholder="Chọn ngân hàng"
+          onChange={setBankCode}
+          style={{ width: "100%", marginBottom: 16 }}
+          allowClear
+        >
+          <Option value="VCB">
+            <BankOutlined style={{ marginRight: 8 }} /> Vietcombank
+          </Option>
+          <Option value="BIDV">
+            <BankOutlined style={{ marginRight: 8 }} /> BIDV
+          </Option>
+          <Option value="VIB">
+            <BankOutlined style={{ marginRight: 8 }} /> VIB
+          </Option>
+        </Select>
+
+        <Button type="primary" size="large" block loading={loading} onClick={handlePayment}>
+          {loading ? <Spin /> : "Thanh toán ngay"}
+        </Button>
+      </Card>
     </div>
   );
 };

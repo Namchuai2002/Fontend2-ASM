@@ -12,62 +12,48 @@ import ClientLayout from "./pages/layout/ClientLayout";
 import ProductDetail from "./pages/client/product/detail";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CheckoutPage from "./pages/client/checkout";
+import CategoryList from "./pages/category/list";
+import CategoryEdit from "./pages/category/edit";
+import CategoryAdd from "./pages/category/add";
+import CartPage from "./pages/client/cart/cart";
+import SearchPage from "./pages/SearchPage";
+
+axios.defaults.baseURL = "http://localhost:3000"; // Chỉ thiết lập 1 lần
+
 const queryClient = new QueryClient();
 
 function App() {
-  axios.defaults.baseURL = "http://localhost:3000";
-
   const routes = [
     {
-      path: "",
+      path: "/",
       element: <ClientLayout />,
       children: [
-        {
-          path: "/",
-          element: <Homepage />,
-        },
-        {
-          path: "/checkout",
-          element: <CheckoutPage />,
-        },
-        {
-          path: "/product/:id",
-          element: <ProductDetail />,
-        },
-        {
-          path: "auth/register",
-          element: <Register />,
-        },
-        {
-          path: "auth/login",
-          element: <Login />,
-        },
-      ],
+        { index: true, element: <Homepage /> },
+      { path: "gio-hang", element: <CartPage /> },  // Sửa lại đường dẫn
+      { path: "tim-kiem", element: <SearchPage /> },
+      { path: "thanh-toan", element: <CheckoutPage /> },
+      { path: "san-pham/:id", element: <ProductDetail /> },
+      { path: "auth/dang-ky", element: <Register /> },
+      { path: "auth/dang-nhap", element: <Login /> },
+    ],
     },
     {
-      path: "admin",
+      path: "/admin",
       element: <AdminLayout />,
       children: [
-        {
-          path: "product/list",
-          element: <ProductList />,
-        },
-        {
-          path: "product/add",
-          element: <ProductAdd />,
-        },
-        {
-          path: "product/:id/edit",
-          element: <ProductEdit />,
-        },
+        { path: "product/list", element: <ProductList /> },
+        { path: "product/add", element: <ProductAdd /> },
+        { path: "product/:id/edit", element: <ProductEdit /> },
+        { path: "category/list", element: <CategoryList /> },
+        { path: "category/add", element: <CategoryAdd /> },
+        { path: "category/:id/edit", element: <CategoryEdit /> },
       ],
     },
   ];
+
   const element = useRoutes(routes);
 
-  return (
-    <QueryClientProvider client={queryClient}>{element}</QueryClientProvider>
-  );
+  return <QueryClientProvider client={queryClient}>{element}</QueryClientProvider>;
 }
 
 export default App;
