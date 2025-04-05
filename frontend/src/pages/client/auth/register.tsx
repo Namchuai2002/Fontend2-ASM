@@ -10,15 +10,13 @@ function Register() {
     try {
       const { email, password } = await form.validateFields();
       
-      // Kiểm tra xem email đã tồn tại chưa
       const { data: users } = await axios.get(`http://localhost:3000/users?email=${email}`);
       if (users.length > 0) return message.error("Email đã tồn tại!");
 
-      // Nếu email chưa tồn tại, tiến hành đăng ký
       await axios.post("http://localhost:3000/users", { email, password });
 
       message.success("Đăng ký thành công!");
-      navigate("/auth/login"); // Chuyển hướng về trang đăng nhập
+      navigate("/auth/dang-nhap"); 
     } catch {
       message.error("Có lỗi xảy ra, vui lòng thử lại!");
     }

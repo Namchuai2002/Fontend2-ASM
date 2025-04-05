@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Row, Col } from "antd";
 import axios from "axios";
-import { Product } from "./product/list";
+import { Product } from "./admin/product/list";
 import { Link } from "react-router-dom";
 
 const { Meta } = Card;

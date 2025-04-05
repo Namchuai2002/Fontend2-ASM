@@ -5,7 +5,7 @@ import {
   editProductDetail,
   getProductDetail,
   ProductForm,
-} from "../../services/product";
+} from "../../../services/product";
 import { useMutation, useQuery } from "@tanstack/react-query";
 function ProductEdit() {
   const { id } = useParams();

@@ -5,7 +5,7 @@ import {
   editCategoryDetail,
   getCategoryDetail,
   CategoryForm,
-} from "../../services/category";  // Đảm bảo rằng API cho category đã được định nghĩa
+} from "../../../services/category"; 
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 function CategoryEdit() {
@@ -27,7 +27,7 @@ function CategoryEdit() {
   }, [category, form]);
 
   const { mutate: handleEdit } = useMutation({
-    mutationFn: editCategoryDetail,  // Chuyển API thành `editCategoryDetail` trong service
+    mutationFn: editCategoryDetail,  
   });
 
   const onFinish: FormProps<CategoryForm>["onFinish"] = (values) => {
@@ -37,7 +37,7 @@ function CategoryEdit() {
       {
         onSuccess: () => {
           message.success("Cập nhật danh mục thành công!");
-          nav("/admin/category/list");  // Điều hướng đến trang danh sách danh mục
+          nav("/admin/category/list"); 
         },
         onError: () => {
           message.error("Lỗi khi cập nhật danh mục!");

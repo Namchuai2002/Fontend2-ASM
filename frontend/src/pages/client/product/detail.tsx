@@ -18,16 +18,16 @@ const ProductDetail: React.FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState<boolean>(true);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Kiểm tra login
-  const navigate = useNavigate(); // Để điều hướng đến trang đăng nhập nếu chưa đăng nhập
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); 
+  const navigate = useNavigate(); 
 
-  // Kiểm tra người dùng có đăng nhập hay không
+ 
   useEffect(() => {
-    const token = localStorage.getItem("token"); // Hoặc sessionStorage nếu bạn dùng session
-    setIsLoggedIn(!!token); // Nếu có token thì người dùng đã đăng nhập
+    const token = localStorage.getItem("token"); 
+    setIsLoggedIn(!!token);
   }, []);
 
-  // Lấy chi tiết sản phẩm
+
   async function getProductDetail(id: string) {
     try {
       const { data } = await axios.get(`http://localhost:3000/products/${id}`);
@@ -43,7 +43,6 @@ const ProductDetail: React.FC = () => {
     }
   }
 
-  // Lấy lại chi tiết sản phẩm mỗi khi `id` thay đổi
   useEffect(() => {
     if (id) {
       setLoading(true);
@@ -58,7 +57,7 @@ const ProductDetail: React.FC = () => {
         content: "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.",
         okText: "Đăng nhập",
         cancelText: "Hủy",
-        onOk: () => navigate("/auth/login"), // Chuyển hướng đến trang đăng nhập
+        onOk: () => navigate("/auth/login"),
       });
       return;
     }

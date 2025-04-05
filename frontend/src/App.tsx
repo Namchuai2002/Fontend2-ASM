@@ -1,24 +1,31 @@
 import { useRoutes } from "react-router-dom";
 import axios from "axios";
 import "antd/dist/reset.css";
-import ProductList from "./pages/product/list";
-import ProductEdit from "./pages/product/edit";
-import ProductAdd from "./pages/product/add";
-import Register from "./pages/auth/register";
-import Login from "./pages/auth/login";
+import ProductList from "./pages/admin/product/list";
+import ProductEdit from "./pages/admin/product/edit";
+import ProductAdd from "./pages/admin/product/add";
+import Register from "./pages/client/auth/register";
+import Login from "./pages/client/auth/login";
 import Homepage from "./pages/Homepage";
 import AdminLayout from "./pages/layout/AdminLayout";
 import ClientLayout from "./pages/layout/ClientLayout";
 import ProductDetail from "./pages/client/product/detail";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import CheckoutPage from "./pages/client/checkout";
-import CategoryList from "./pages/category/list";
-import CategoryEdit from "./pages/category/edit";
-import CategoryAdd from "./pages/category/add";
-import CartPage from "./pages/client/cart/cart";
+import CheckoutPage from "./pages/client/checkout/Checkout";
+import CategoryList from "./pages/admin/category/list";
+import CategoryAdd from "./pages/admin/category/add";
+import CategoryEdit from "./pages/admin/category/edit";
+import CartPage from "./pages/client/cart/CartPage";
 import SearchPage from "./pages/SearchPage";
+import CheckPayment from "./pages/client/checkout/CheckPayment";
+import OrderSuccess from "./pages/client/orders/OrderSuccess"; // Thêm trang Order Success
+import OrdersPage from "./pages/client/orders/Orders";
+import AdminOrders from "./pages/admin/orders/list";
+import AdminUsers from "./pages/admin/user/list";
+import UserProfile from "./pages/client/user/UserProfile";
+import PaymentResult from "./pages/checkout/PaymentResult";
 
-axios.defaults.baseURL = "http://localhost:3000"; // Chỉ thiết lập 1 lần
+axios.defaults.baseURL = "http://localhost:3000";
 
 const queryClient = new QueryClient();
 
@@ -29,13 +36,17 @@ function App() {
       element: <ClientLayout />,
       children: [
         { index: true, element: <Homepage /> },
-      { path: "gio-hang", element: <CartPage /> },  // Sửa lại đường dẫn
-      { path: "tim-kiem", element: <SearchPage /> },
-      { path: "thanh-toan", element: <CheckoutPage /> },
-      { path: "san-pham/:id", element: <ProductDetail /> },
-      { path: "auth/dang-ky", element: <Register /> },
-      { path: "auth/dang-nhap", element: <Login /> },
-    ],
+        { path: "gio-hang", element: <CartPage /> },  
+        { path: "tim-kiem", element: <SearchPage /> },
+        { path: "thanh-toan", element: <CheckoutPage /> },
+        { path: "check-payment", element: <PaymentResult /> }, 
+        { path: "order-success", element: <OrderSuccess /> },
+        { path: "orders", element: <OrdersPage /> },
+        { path: "profile", element: <UserProfile/> },
+        { path: "san-pham/:id", element: <ProductDetail /> },
+        { path: "auth/dang-ky", element: <Register /> },
+        { path: "auth/dang-nhap", element: <Login /> },
+      ],
     },
     {
       path: "/admin",
@@ -47,6 +58,8 @@ function App() {
         { path: "category/list", element: <CategoryList /> },
         { path: "category/add", element: <CategoryAdd /> },
         { path: "category/:id/edit", element: <CategoryEdit /> },
+        { path: "orders", element: <AdminOrders /> },
+        { path: "users", element: <AdminUsers /> },
       ],
     },
   ];

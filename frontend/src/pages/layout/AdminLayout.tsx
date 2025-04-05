@@ -1,8 +1,14 @@
-import { UserOutlined, HomeOutlined, ShopOutlined, AppstoreAddOutlined } from "@ant-design/icons";
-import { Content, Header } from "antd/es/layout/layout";
-import Sider from "antd/es/layout/Sider";
+import { 
+  UserOutlined, 
+  HomeOutlined, 
+  ShopOutlined, 
+  AppstoreAddOutlined, 
+  ShoppingCartOutlined 
+} from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
+
+const { Header, Sider, Content } = Layout;
 
 const AdminLayout = () => {
   const nav = useNavigate();
@@ -10,14 +16,11 @@ const AdminLayout = () => {
 
   const menuItems = [
     { key: "/admin", icon: <HomeOutlined />, label: "Dashboard" },
-    { key: "/admin/product/list", icon: <ShopOutlined />, label: "Products" },
-    { key: "/admin/category/list", icon: <AppstoreAddOutlined />, label: "Categories" },  // Thêm mục danh mục
-    { key: "/admin/users", icon: <UserOutlined />, label: "Users" },
-    { key: "/auth/register", icon: <UserOutlined />, label: "Register" },
-    { key: "/auth/login", icon: <UserOutlined />, label: "Login" },
+    { key: "/admin/product/list", icon: <ShopOutlined />, label: "Sản phẩm" },
+    { key: "/admin/category/list", icon: <AppstoreAddOutlined />, label: "Danh mục" },
+    { key: "/admin/orders", icon: <ShoppingCartOutlined />, label: "Đơn hàng" },
+    { key: "/admin/users", icon: <UserOutlined />, label: "Người dùng" },
   ];
-
-  const selectedKey = location.pathname;
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -37,7 +40,7 @@ const AdminLayout = () => {
         <Menu
           theme="dark"
           mode="inline"
-          selectedKeys={[selectedKey]}
+          selectedKeys={[location.pathname]}
           onClick={({ key }) => nav(key)}
           items={menuItems}
         />

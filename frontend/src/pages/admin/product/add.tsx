@@ -1,6 +1,6 @@
 import { Button, Form, FormProps, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import { addProduct, ProductForm } from "../../services/product";
+import { addProduct, ProductForm } from "../../../services/product";
 import { useMutation } from "@tanstack/react-query";
 
 function ProductAdd() {

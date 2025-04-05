@@ -4,8 +4,6 @@ export type ProductForm = {
   title: string;
   image: string;
   price: number;
-  // description
-  // category
 };
 
 export const getAllProduct = async () => {

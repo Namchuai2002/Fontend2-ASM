@@ -18,7 +18,7 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(data[0]));
 
       notification.success({ message: "Đăng nhập thành công" });
-      navigate("/"); // Chuyển hướng về trang chủ sau khi đăng nhập
+      navigate("/"); 
       window.location.reload();
     } catch {
       message.error("Có lỗi xảy ra, vui lòng thử lại!");

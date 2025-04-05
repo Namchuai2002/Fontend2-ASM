@@ -1,61 +1,64 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button, message, Table } from "antd";
 import { useNavigate } from "react-router-dom";
-import { getAllCategories, removeCategory } from "../../services/category";
+import { getAllProduct, removeProduct } from "../../../services/product";
 
-export type Category = {
+export type Product = {
   id: number;
   name: string;
+  price: number;
+  image: string;
 };
 
-function CategoryList() {
+function ProductList() {
   const nav = useNavigate();
   const queryClient = useQueryClient();
 
   const {
-    data: categories,
+    data: products,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["categories"],
-    queryFn: getAllCategories,
+    queryKey: ["products"],
+    queryFn: getAllProduct,
   });
 
-  const { mutate: deleteCategory } = useMutation({
-    mutationFn: removeCategory,
+  const { mutate: deleteProduct } = useMutation({
+    mutationFn: removeProduct,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["categories"] });
+      queryClient.invalidateQueries({ queryKey: ["products"] });
     },
   });
 
   const handleDelete = (id: number) => {
-    deleteCategory(id, {
+    deleteProduct(id, {
       onSuccess: () => {
-        message.success("Xóa danh mục thành công!");
+        message.success("Xóa sản phẩm thành công!");
       },
       onError: () => {
-        message.error("Lỗi khi xóa danh mục!");
+        message.error("Lỗi khi xóa sản phẩm!");
       },
     });
   };
 
-  if (error) return <p>Lỗi khi tải danh mục</p>;
+  if (error) return <p>Lỗi khi tải sản phẩm</p>;
 
   const columns = [
-    { title: "Tên danh mục", dataIndex: "name", key: "name" },
+    { title: "Name", dataIndex: "name", key: "name" },
+    { title: "Price", dataIndex: "price", key: "price" },
     {
-      title: "Hành động",
-      render: (record: Category) => {
+      title: "Actions",
+      render: (record: Product) => {
         return (
           <>
             <Button
-              onClick={() => nav(`/admin/category/${record.id}/edit`)}
+              onClick={() => nav(`/admin/product/${record.id}/edit`)}
               type="link"
             >
-              Chỉnh sửa
+              Edit
             </Button>
             <Button onClick={() => handleDelete(record.id)} type="link" danger>
-              Xóa
+              Delete
             </Button>
           </>
         );
@@ -68,13 +71,13 @@ function CategoryList() {
       <Button
         type="primary"
         style={{ marginBottom: 16 }}
-        onClick={() => nav("/admin/category/add")}
+        onClick={() => nav("/admin/product/add")}
       >
-        Thêm danh mục
+        Add Sản Phẩm
       </Button>
       <Table
         columns={columns}
-        dataSource={categories}
+        dataSource={products}
         loading={isLoading}
         rowKey="id"
       />
@@ -82,4 +85,4 @@ function CategoryList() {
   );
 }
 
-export default CategoryList;
+export default ProductList;
